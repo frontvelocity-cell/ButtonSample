@@ -1,0 +1,37 @@
+<main class="main-content">
+  <div class="hero-row">
+    <div class="welcome-section">
+      <h1 class="welcome-title">Welcome back, Alex! 👋</h1>
+      <p class="welcome-subtitle">Here's what's happening in the system today.</p>
+    </div>
+    
+    <div class="role-card">
+      <div class="role-badge">
+        <span class="material-icons">admin_panel_settings</span>
+      </div>
+      <div class="role-info">
+        <div class="role-label">Role</div>
+        <div class="role-value">Administrator</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="stats-grid">
+    <app-stats-card 
+      *ngFor="let stat of stats" 
+      [icon]="stat.icon"
+      [title]="stat.title"
+      [value]="stat.value"
+      [caption]="stat.caption"
+      [color]="stat.color"
+      [bgColor]="stat.bgColor">
+    </app-stats-card>
+  </div>
+  
+  <div class="tables-section">
+    <app-flight-assignment-table></app-flight-assignment-table>
+    <app-employee-table></app-employee-table>
+  </div>
+  
+  <app-quick-actions></app-quick-actions>
+</main>

@@ -1,0 +1,26 @@
+<aside class="sidebar">
+  <nav class="main-nav">
+    <div class="menu-item" *ngFor="let item of menuItems" [class.active]="item.active">
+      <div class="menu-link">
+        <span class="material-icons menu-icon">{{ item.icon }}</span>
+        <span class="menu-label">{{ item.label }}</span>
+        <span class="material-icons chevron" *ngIf="item.children">chevron_right</span>
+      </div>
+      
+      <div class="submenu" *ngIf="item.children">
+        <div class="submenu-item" *ngFor="let child of item.children">
+          <span class="submenu-label">{{ child.label }}</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="lower-menu">
+    <div class="menu-item logout">
+      <div class="menu-link">
+        <span class="material-icons menu-icon logout-icon">logout</span>
+        <span class="menu-label logout-label">Logout Account</span>
+      </div>
+    </div>
+  </div>
+</aside>

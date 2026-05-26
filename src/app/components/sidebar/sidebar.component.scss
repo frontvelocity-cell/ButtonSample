@@ -1,0 +1,92 @@
+.sidebar {
+  width: 260px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  min-height: 885px;
+}
+
+.main-nav {
+  padding: 0;
+}
+
+.menu-item {
+  margin-bottom: 0;
+  
+  &.active {
+    background: rgba(197, 213, 249, 0.3);
+  }
+  
+  &.logout {
+    .menu-icon {
+      color: #d55f5a;
+    }
+    
+    .menu-label {
+      color: #d55f5a;
+    }
+  }
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #0008d5;
+  cursor: pointer;
+  
+  &:hover {
+    background: rgba(197, 213, 249, 0.1);
+  }
+}
+
+.menu-icon {
+  font-size: 24px;
+  margin-right: 16px;
+  color: #0008d5;
+}
+
+.menu-label {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+  color: #0008d5;
+}
+
+.chevron {
+  font-size: 16px;
+  color: #0008d5;
+}
+
+.submenu {
+  background: rgba(0, 0, 0, 0.02);
+  padding-left: 40px;
+}
+
+.submenu-item {
+  padding: 12px 20px;
+  
+  &:hover {
+    background: rgba(197, 213, 249, 0.1);
+  }
+}
+
+.submenu-label {
+  font-size: 14px;
+  color: #0008d5;
+  font-weight: 400;
+}
+
+.lower-menu {
+  padding: 20px 0;
+  border-top: 1px solid #f0f0f8;
+  margin-top: auto;
+}
+
+.logout-icon,
+.logout-label {
+  color: #d55f5a !important;
+}

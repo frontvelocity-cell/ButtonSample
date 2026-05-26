@@ -1,0 +1,17 @@
+.footer {
+  background: white;
+  border-top: 1px solid #f0f0f8;
+  padding: 16px 26px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright,
+.version {
+  font-size: 13px;
+  color: #858596;
+}

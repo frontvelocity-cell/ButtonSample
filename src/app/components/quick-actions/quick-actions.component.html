@@ -1,0 +1,16 @@
+<div class="actions-panel">
+  <h3 class="panel-title">Quick Actions</h3>
+  
+  <div class="actions-grid">
+    <div class="action-card" 
+         *ngFor="let action of actions"
+         [style.background-color]="action.bgColor">
+      <span class="material-icons action-icon" [style.color]="action.color">
+        {{ action.icon }}
+      </span>
+      <span class="action-label" [style.color]="action.color">
+        {{ action.label }}
+      </span>
+    </div>
+  </div>
+</div>

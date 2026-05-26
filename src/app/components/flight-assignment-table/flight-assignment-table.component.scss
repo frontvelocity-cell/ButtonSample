@@ -1,0 +1,78 @@
+.panel {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.panel-header {
+  padding: 16px 16px 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel-title {
+  font-size: 18px;
+  color: #171726;
+  font-weight: 600;
+  margin: 0;
+}
+
+.view-all-link {
+  font-size: 13px;
+  color: #0008d5;
+  text-decoration: none;
+  font-weight: 500;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.table-container {
+  padding: 16px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  background: #f7f5fc;
+  padding: 12px;
+  text-align: left;
+  font-size: 13px;
+  color: #4b4b61;
+  font-weight: 500;
+  border: none;
+}
+
+.table td {
+  padding: 12px;
+  font-size: 13px;
+  color: #29293a;
+  border-bottom: 1px solid #f8f8fa;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-confirmed {
+  background: #e7f6ec;
+  color: #15934a;
+}
+
+.status-scheduled {
+  background: #e7f1ff;
+  color: #2477d4;
+}

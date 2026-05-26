@@ -1,0 +1,27 @@
+<div class="panel">
+  <div class="panel-header">
+    <h3 class="panel-title">Recent Employees</h3>
+    <a href="#" class="view-all-link">View All</a>
+  </div>
+  
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Employee ID</th>
+          <th>Name</th>
+          <th>Designation</th>
+          <th>Department</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.designation }}</td>
+          <td>{{ employee.department }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
