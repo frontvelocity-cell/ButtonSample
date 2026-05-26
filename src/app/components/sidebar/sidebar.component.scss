@@ -1,17 +1,16 @@
-```css
 .sidebar {
   width: 260px;
-  background: white;
+  background: var(--surface, white);
   height: 100vh;
-  border-right: 1px solid #f0f0f0;
+  min-height: max(885px, calc(100vh - 74px));
+  border-right: 1px solid var(--border, #f0f0f0);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 0;
-  min-height: 885px;
 }
 
-/* Merged navigation containers - combining .main-nav and .navigation */
+/* Unified navigation container */
 .navigation {
   display: flex;
   flex-direction: column;
@@ -19,32 +18,40 @@
   padding: 0 10px;
 }
 
-/* Merged menu items container - combining .main-nav and .menu-items */
+/* Unified menu items container */
 .menu-items {
   flex: 1;
-  padding: 0;
+  padding: 16px 0;
   padding-top: 13px;
 }
 
 .menu-item {
-  margin-bottom: 8px; /* Using more specific spacing from version 2 */
+  margin-bottom: 8px;
   
   &.active {
-    background: rgba(197, 213, 249, 0.3); /* Keeping consistent color from version 1 */
-    border-radius: 4px; /* Adding border-radius from version 2 */
+    .menu-link {
+      background: rgba(124, 134, 248, 0.3);
+      color: var(--primary-color, #3a8cff);
+      border-radius: 4px;
+    }
   }
   
   &.logout {
-    /* Merged icon selectors - .menu-icon and .icon */
-    .menu-icon,
-    .icon {
-      color: #d55f5a;
+    .menu-link {
+      color: var(--error-color, #d55f5a);
     }
     
-    /* Merged label selectors - .menu-label and .label */
+    /* Unified icon selectors */
+    .menu-icon,
+    .icon,
+    .material-icons {
+      color: var(--error-color, #d55f5a);
+    }
+    
+    /* Unified label selectors */
     .menu-label,
     .label {
-      color: #d55f5a;
+      color: var(--error-color, #d55f5a);
     }
   }
 }
@@ -52,80 +59,84 @@
 .menu-link {
   display: flex;
   align-items: center;
-  padding: 12px 20px; /* Using version 1 padding for consistency */
+  gap: 12px;
+  padding: 12px 20px;
   text-decoration: none;
-  color: #081535; /* Using version 2 color as it's more specific */
+  color: var(--text-primary, #081535);
   cursor: pointer;
-  transition: all 0.2s; /* Adding transition from version 2 */
+  transition: all 0.2s;
   
   &:hover {
-    background: rgba(197, 213, 249, 0.1); /* Keeping version 1 hover color */
-    border-radius: 4px; /* Adding border-radius from version 2 */
+    background: var(--border-light, rgba(197, 213, 249, 0.1));
+    border-radius: 4px;
   }
 }
 
-/* Merged icon classes - .menu-icon and .icon */
+/* Unified icon classes */
 .menu-icon,
-.icon {
-  width: 24px; /* Adding explicit width from version 2 */
-  height: 24px; /* Adding explicit height from version 2 */
-  font-size: 24px; /* Keeping larger font-size from version 1 */
-  margin-right: 16px; /* Using version 1 margin */
-  color: #081535; /* Using version 2 color */
+.icon,
+.material-icons {
+  width: 24px;
+  height: 24px;
+  font-size: max(20px, 24px);
+  margin-right: 16px;
+  color: var(--primary-color, #081535);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Merged label classes - .menu-label and .label */
+/* Unified label classes */
 .menu-label,
 .label {
   flex: 1;
-  font-size: 16px; /* Using version 1 font-size for better readability */
+  font-size: max(14px, 16px);
   font-weight: 500;
-  color: #081535; /* Using version 2 color */
+  color: var(--text-primary, #081535);
 }
 
 .chevron {
-  font-size: 16px; /* Using version 1 font-size for consistency */
-  color: #081535; /* Using version 2 color */
-  transform: rotate(90deg); /* Adding transform from version 2 */
+  margin-left: auto;
+  font-size: 16px;
+  color: var(--text-secondary, #081535);
+  transform: rotate(90deg);
 }
 
 .submenu {
-  background: rgba(0, 0, 0, 0.02); /* Keeping background from version 1 */
-  padding-left: 44px; /* Using version 2 padding for better alignment */
-  padding-bottom: 8px; /* Adding bottom padding from version 2 */
+  background: rgba(0, 0, 0, 0.02);
+  padding-left: 44px;
+  padding-bottom: 8px;
 }
 
 .submenu-item {
-  display: block; /* Adding display from version 2 */
-  padding: 12px 20px; /* Using version 1 padding for consistency */
-  color: #081535; /* Using version 2 color */
+  display: block;
+  padding: max(8px, 12px) 16px max(8px, 12px) 48px;
+  color: var(--text-primary, #081535);
   text-decoration: none;
   font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
   
   &:hover {
-    background: rgba(197, 213, 249, 0.1); /* Keeping version 1 hover background */
-    color: #3a8cff; /* Adding color change from version 2 */
+    background: var(--border-light, rgba(197, 213, 249, 0.1));
+    color: var(--primary-color, #3a8cff);
   }
 }
 
 .submenu-label {
   font-size: 14px;
-  color: #081535; /* Using version 2 color */
+  color: var(--text-primary, #081535);
   font-weight: 400;
 }
 
 .lower-menu {
-  padding: 20px 0;
-  border-top: 1px solid #f0f0f0; /* Using version 2 border color */
+  padding: max(16px, 20px) 0;
+  border-top: 1px solid var(--border, #f0f0f0);
   margin-top: auto;
 }
 
 /* Legacy selectors for backward compatibility */
 .logout-icon,
 .logout-label {
-  color: #d55f5a !important;
+  color: var(--error-color, #d55f5a) !important;
 }
-```

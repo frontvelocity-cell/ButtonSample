@@ -1,4 +1,12 @@
+```typescript
 import { Component } from '@angular/core';
+
+interface Employee {
+  id: string;
+  name: string;
+  designation: string;
+  department: string;
+}
 
 @Component({
   selector: 'app-employees-table',
@@ -6,7 +14,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./employees-table.component.scss']
 })
 export class EmployeesTableComponent {
-  employees = [
+  // Added type safety with Employee interface
+  employees: Employee[] = [
     {
       id: 'E1001',
       name: 'Sarah Johnson',
@@ -39,3 +48,4 @@ export class EmployeesTableComponent {
     }
   ];
 }
+```

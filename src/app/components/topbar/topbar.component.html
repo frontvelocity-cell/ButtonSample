@@ -11,14 +11,16 @@
     
     <div class="profile">
       <div class="avatar">
-        <span class="initials">{{ user.initials }}</span>
+        <!-- Merged: Support both initials and avatar display -->
+        <span class="initials" *ngIf="!user.avatar">{{ user.initials }}</span>
+        <img *ngIf="user.avatar" [src]="user.avatar" [alt]="user.name" class="avatar-image">
       </div>
       <div class="profile-info">
         <div class="profile-name">{{ user.name }}</div>
         <div class="profile-role">{{ user.role }}</div>
       </div>
-      <!-- Using Material Icons chevron for consistency -->
-      <span class="material-icons chevron">chevron_right</span>
+      <!-- Merged: Unified dropdown icon with consistent naming -->
+      <span class="material-icons chevron">keyboard_arrow_down</span>
     </div>
   </div>
 </header>

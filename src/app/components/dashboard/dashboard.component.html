@@ -2,13 +2,13 @@
   <!-- Main dashboard header section -->
   <div class="dashboard-header">
     <div class="hero-row">
-      <div class="welcome">
+      <div class="welcome-section">
         <h1 class="dashboard-title">Welcome back, {{ user.name || dashboardTitle || title }}! 👋</h1>
         <p class="subtitle">Here's what's happening in the system today.</p>
       </div>
       <div class="role-card">
         <div class="role-badge">
-          <span class="icon">⚙️</span>
+          <span class="material-icons">admin_panel_settings</span>
         </div>
         <div class="role-info">
           <div class="role-label">Role</div>
@@ -20,17 +20,11 @@
 
   <!-- Main dashboard content area -->
   <div class="dashboard-content">
-    <!-- Welcome card for basic dashboard info -->
-    <div class="dashboard-card">
-      <h3>Welcome to Dashboard</h3>
-      <p>This is your main dashboard view.</p>
-    </div>
-
     <!-- Statistics component -->
     <app-stats></app-stats>
     
     <!-- Data tables section -->
-    <div class="content-section">
+    <div class="tables-section">
       <app-flight-assignments-table></app-flight-assignments-table>
       <app-employees-table></app-employees-table>
     </div>

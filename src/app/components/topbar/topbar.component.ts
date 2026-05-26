@@ -9,6 +9,7 @@ export class TopbarComponent {
   user = {
     name: 'Alex Thompson',
     role: 'Administrator',
-    initials: 'AT'
+    initials: 'AT', // Merged: kept 'initials' as primary property name for user avatar display
+    avatar: 'AT'    // Merged: kept 'avatar' as alias for backward compatibility
   };
 }

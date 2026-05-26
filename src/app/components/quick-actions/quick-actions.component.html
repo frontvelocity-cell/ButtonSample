@@ -1,3 +1,5 @@
+**HTML Template (Merged and Cleaned)**
+
 ```html
 <div class="actions-panel">
   <h3 class="panel-title">Quick Actions</h3>
@@ -20,79 +22,260 @@
 </div>
 ```
 
+**CSS (Merged and Optimized)**
+
 ```css
-/* Merged CSS classes for action cards with color variants */
+/* Actions panel layout */
+.actions-panel {
+  width: 100%;
+}
+
+.panel-title {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+/* Base action card styles with enhanced hover effects */
 .action-card {
-  /* Base styles for action cards */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
   border-radius: 8px;
-  transition: transform 0.2s ease;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .action-card:hover {
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Color-based action card classes for consistent theming */
+/* Color variant classes with CSS custom properties for theming */
 .action-card.action-primary {
   background-color: var(--primary-bg, #e3f2fd);
+  border-color: var(--primary-border, #bbdefb);
 }
 
 .action-card.action-secondary {
   background-color: var(--secondary-bg, #f3e5f5);
+  border-color: var(--secondary-border, #e1bee7);
 }
 
 .action-card.action-success {
   background-color: var(--success-bg, #e8f5e8);
+  border-color: var(--success-border, #c8e6c9);
 }
 
 .action-card.action-warning {
   background-color: var(--warning-bg, #fff3e0);
+  border-color: var(--warning-border, #ffcc02);
 }
 
 .action-card.action-danger {
   background-color: var(--danger-bg, #ffebee);
+  border-color: var(--danger-border, #ffcdd2);
 }
 
-/* Icon and label styling */
+/* Icon and label styling with responsive design */
 .action-icon {
   font-size: 2rem;
   margin-bottom: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.action-card:hover .action-icon {
+  transform: scale(1.1);
 }
 
 .action-label {
   font-weight: 500;
   text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .actions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .action-card {
+    padding: 0.75rem;
+  }
+  
+  .action-icon {
+    font-size: 1.5rem;
+  }
+  
+  .action-label {
+    font-size: 0.75rem;
+  }
 }
 ```
 
+**TypeScript Component (Merged and Enhanced)**
+
 ```typescript
-// Component interface for action items
+// Enhanced interface with additional properties for better functionality
 export interface ActionItem {
+  id?: string; // Added unique identifier
   icon: string;
   label: string;
   color: 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
-  bgColor?: string; // Optional for custom background colors
+  bgColor?: string; // Optional custom background color override
+  disabled?: boolean; // Added disabled state support
+  action?: () => void; // Added click handler support
+  tooltip?: string; // Added tooltip support
 }
 
-// Component class with merged functionality
+// Enhanced component class with merged functionality and additional features
 export class ActionsComponent {
+  // Merged and expanded actions array with better data structure
   actions: ActionItem[] = [
     {
+      id: 'dashboard',
       icon: 'dashboard',
       label: 'Dashboard',
       color: 'primary',
-      bgColor: '#e3f2fd'
+      bgColor: '#e3f2fd',
+      tooltip: 'Go to main dashboard',
+      action: () => this.navigateTo('/dashboard')
     },
     {
+      id: 'settings',
       icon: 'settings',
       label: 'Settings',
       color: 'secondary',
-      bgColor: '#f3e5f5'
+      bgColor: '#f3e5f5',
+      tooltip: 'Application settings',
+      action: () => this.navigateTo('/settings')
+    },
+    {
+      id: 'reports',
+      icon: 'assessment',
+      label: 'Reports',
+      color: 'success',
+      tooltip: 'View reports and analytics'
+    },
+    {
+      id: 'notifications',
+      icon: 'notifications',
+      label: 'Alerts',
+      color: 'warning',
+      tooltip: 'View notifications and alerts'
+    },
+    {
+      id: 'help',
+      icon: 'help_outline',
+      label: 'Help',
+      color: 'primary',
+      tooltip: 'Get help and support'
     }
   ];
+
+  // Enhanced method to handle action clicks with error handling
+  onActionClick(action: ActionItem): void {
+    if (action.disabled) {
+      return;
+    }
+
+    try {
+      if (action.action) {
+        action.action();
+      } else {
+        // Default behavior if no specific action is defined
+        console.log(`Action clicked: ${action.label}`);
+      }
+    } catch (error) {
+      console.error('Error executing action:', error);
+    }
+  }
+
+  // Helper method for navigation (placeholder - implement based on your routing solution)
+  private navigateTo(route: string): void {
+    // Implementation depends on your routing solution (Angular Router, etc.)
+    console.log(`Navigating to: ${route}`);
+  }
+
+  // Method to dynamically add actions
+  addAction(action: ActionItem): void {
+    this.actions.push(action);
+  }
+
+  // Method to remove actions by id
+  removeAction(id: string): void {
+    this.actions = this.actions.filter(action => action.id !== id);
+  }
+
+  // Method to update action state
+  updateAction(id: string, updates: Partial<ActionItem>): void {
+    const actionIndex = this.actions.findIndex(action => action.id === id);
+    if (actionIndex !== -1) {
+      this.actions[actionIndex] = { ...this.actions[actionIndex], ...updates };
+    }
+  }
+}
+```
+
+**Updated HTML Template with Click Handler**
+
+```html
+<div class="actions-panel">
+  <h3 class="panel-title">Quick Actions</h3>
+  
+  <div class="actions-grid">
+    <div class="action-card" 
+         *ngFor="let action of actions; trackBy: trackByActionId"
+         [class]="'action-' + action.color"
+         [class.disabled]="action.disabled"
+         [style.background-color]="action.bgColor"
+         [title]="action.tooltip"
+         (click)="onActionClick(action)">
+      <span class="material-icons action-icon" 
+            [style.color]="action.color">
+        {{ action.icon }}
+      </span>
+      <span class="action-label" 
+            [style.color]="action.color">
+        {{ action.label }}
+      </span>
+    </div>
+  </div>
+</div>
+```
+
+**Additional TypeScript Methods for Template**
+
+```typescript
+// TrackBy function for better performance with *ngFor
+trackByActionId(index: number, action: ActionItem): string {
+  return action.id || index.toString();
+}
+```
+
+**Additional CSS for Disabled State**
+
+```css
+/* Disabled state styling */
+.action-card.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.action-card.disabled:hover {
+  transform: none;
+  box-shadow: none;
 }
 ```

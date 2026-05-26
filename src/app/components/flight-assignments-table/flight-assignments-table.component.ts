@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
 
+interface FlightAssignment {
+  flightCode: string;
+  employee: string;
+  route: string;
+  travelDate: string;
+  status: 'Confirmed' | 'Scheduled';
+}
+
 @Component({
   selector: 'app-flight-assignments-table',
   templateUrl: './flight-assignments-table.component.html',
   styleUrls: ['./flight-assignments-table.component.scss']
 })
 export class FlightAssignmentsTableComponent {
-  assignments = [
+  assignments: FlightAssignment[] = [
     {
       flightCode: 'FL1234',
       employee: 'Sarah Johnson',

@@ -1,17 +1,29 @@
 .footer {
-  background: white;
-  border-top: 1px solid #f0f0f8; /* Using lighter border color from first version for better visual hierarchy */
-  padding: 16px 26px; /* Using larger padding from first version for better spacing */
+  background: var(--surface); /* Using CSS custom properties for better theming support */
+  border-top: 1px solid var(--border); /* Using CSS custom properties with fallback capability */
+  padding: 16px 26px; /* Using larger horizontal padding for better spacing */
 }
 
 .footer-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px; /* Adding max-width for better content containment */
+  margin: 0 auto; /* Centering content within max-width */
 }
 
 .copyright,
-.version {
+.version,
+.footer-text,
+.footer-version {
   font-size: 13px;
-  color: #858596;
+  color: var(--text-muted); /* Using CSS custom property for consistent theming */
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
 }

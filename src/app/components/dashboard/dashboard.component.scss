@@ -3,6 +3,8 @@
   padding: 26px;
   background: rgba(196, 213, 248, 0.1);
   overflow-y: auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .hero-row {
@@ -12,63 +14,70 @@
   margin-bottom: 24px;
 }
 
-.welcome {
+.welcome,
+.welcome-section {
   h1 {
     font-size: 24px;
     font-weight: 600;
-    color: #171726;
+    color: var(--text-primary, #171726);
     margin-bottom: 8px;
   }
   
   .subtitle {
     font-size: 16px;
-    color: #5f5f72;
+    color: var(--text-secondary, #5f5f72);
     line-height: 1.5;
   }
 }
 
 .role-card {
-  background: white;
-  padding: 24px;
-  border-radius: 8px;
+  background: var(--surface, white);
+  padding: 20px 24px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
-  gap: 18px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  gap: 16px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
 }
 
 .role-badge {
   width: 42px;
   height: 42px;
-  background: #081535;
+  background: var(--primary-color, #081535);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   
-  .icon {
+  .icon,
+  .material-icons {
     color: white;
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 
 .role-info {
   .role-label {
     font-size: 12px;
-    color: #6a6a7b;
+    color: var(--text-muted, #6a6a7b);
     margin-bottom: 4px;
   }
   
   .role-value {
     font-size: 16px;
     font-weight: 600;
-    color: #231d68;
+    color: var(--primary-color, #231d68);
   }
 }
 
-.content-section {
+.content-section,
+.tables-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 24px;
   margin-bottom: 24px;
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
 }

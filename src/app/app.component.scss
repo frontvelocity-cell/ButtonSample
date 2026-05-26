@@ -1,12 +1,23 @@
+.app-container,
 .dashboard-container {
   min-height: 100vh;
-  background-color: #fbf9ff;
   display: flex;
   flex-direction: column;
+  background-color: #fbf9ff; /* Fallback color, can be overridden by CSS custom properties */
+  background-color: var(--background, #fbf9ff); /* Uses CSS custom property with fallback */
 }
 
-.dashboard-body,
-.main-content {
+/* Unified content wrapper - merges dashboard-body, app-content, and main-content container styles */
+.app-content,
+.dashboard-body {
   display: flex;
   flex: 1;
+}
+
+/* Main content area - combines padding and background from both versions */
+.main-content {
+  flex: 1;
+  padding: 24px;
+  background-color: rgba(124, 134, 248, 0.1);
+  overflow-x: auto;
 }

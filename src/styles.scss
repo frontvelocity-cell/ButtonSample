@@ -1,3 +1,19 @@
+/* CSS Variables */
+:root {
+  --primary-color: #08053B;
+  --secondary-color: #3B8CE8;
+  --success-color: #18A957;
+  --warning-color: #F59E0B;
+  --error-color: #D53F3A;
+  --text-primary: #171726;
+  --text-secondary: #6B7280;
+  --text-muted: #9CA3AF;
+  --background: #FCFCFF;
+  --surface: #FFFFFF;
+  --border: #E5E7EB;
+  --border-light: #F3F4F6;
+}
+
 /* Global Styles */
 * {
   margin: 0;
@@ -6,72 +22,89 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fbf9ff; /* Merged: kept more specific color value */
-  color: #1c1c32; /* Merged: kept more specific color value */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background);
+  color: var(--text-primary);
+  line-height: 1.5;
 }
 
 /* Container and Layout */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px; /* Merged: increased from 16px to 20px for better spacing */
+  padding: 0 20px; /* Kept larger padding for better spacing */
 }
 
 /* Card Component */
 .card {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 24px; /* Merged: kept larger padding value for better spacing */
-  margin-bottom: 24px; /* Added from first version */
+  background: var(--surface);
+  border-radius: 12px; /* Increased for modern look */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+  padding: 24px; /* Kept larger padding for better spacing */
+  margin-bottom: 24px;
+  overflow: hidden;
 }
 
 /* Button Components */
 .btn {
-  padding: 12px 24px; /* Merged: kept larger padding for better touch targets */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px; /* Kept larger padding for better touch targets */
   border: none;
-  border-radius: 6px; /* Merged: kept larger radius for modern look */
+  border-radius: 6px;
   cursor: pointer;
-  font-weight: 500; /* Added explicit font-weight */
-  font-size: 14px; /* Added from second version */
-  transition: all 0.2s ease; /* Merged: added ease timing function */
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary {
-  background: #3a8cff;
+  background-color: var(--primary-color);
   color: white;
 }
 
 .btn-primary:hover {
-  background: #2970cc; /* Merged: kept first version's hover color */
+  background: #2970cc; /* Maintained specific hover color */
 }
 
-.btn-success, .btn-secondary {
-  background: #0d8c3e;
+.btn-success,
+.btn-secondary {
+  background-color: var(--success-color);
   color: white;
 }
 
-.btn-success:hover, .btn-secondary:hover {
-  background: #0a6b30; /* Merged: kept first version's hover color */
+.btn-success:hover,
+.btn-secondary:hover {
+  background: #0a6b30; /* Maintained specific hover color */
 }
 
 /* Status Badges */
-.status-badge {
-  padding: 4px 12px; /* Merged: kept larger horizontal padding */
-  border-radius: 12px; /* Merged: kept larger radius for pill shape */
+.status-badge,
+.status {
+  display: inline-block;
+  padding: 4px 12px; /* Kept larger horizontal padding */
+  border-radius: 12px; /* Kept larger radius for pill shape */
   font-size: 12px;
   font-weight: 500;
 }
 
-.status-confirmed {
-  background: #e7f6ec; /* Merged: kept first version's background */
-  color: #15934a;
+.status-confirmed,
+.status.confirmed {
+  background-color: #E7F5E7;
+  color: #15803D;
 }
 
-.status-scheduled {
-  background: #e7f1ff; /* Merged: kept first version's background */
-  color: #2477d4; /* Merged: kept first version's text color */
+.status-scheduled,
+.status.scheduled {
+  background-color: #E7F0FF;
+  color: #2563EB;
 }
 
 /* Table Styles */
@@ -84,19 +117,19 @@ body {
 .table td {
   padding: 12px;
   text-align: left;
-  border-bottom: 1px solid #f0f0f8; /* Merged: kept more specific border color */
+  border-bottom: 1px solid var(--border-light);
 }
 
 .table th {
-  background: #f7f5fc; /* Merged: kept consistent background property format */
-  color: #4b4b61;
-  font-weight: 500;
-  font-size: 13px; /* Added from first version */
+  background-color: var(--border-light);
+  color: var(--text-secondary);
+  font-weight: 600; /* Enhanced font weight */
+  font-size: 13px;
 }
 
 .table td {
-  color: #29293a; /* Added from first version */
-  font-size: 13px; /* Added from first version */
+  color: var(--text-primary);
+  font-size: 13px;
 }
 
 /* Icon Styles */
@@ -104,6 +137,10 @@ body {
   width: 24px;
   height: 24px;
   display: inline-block;
+}
+
+.material-icons {
+  font-size: 20px;
 }
 
 /* Utility Classes - Layout */
@@ -154,11 +191,11 @@ body {
 
 /* Utility Classes - Colors */
 .text-gray-500 {
-  color: #6c6c7a;
+  color: var(--text-muted);
 }
 
 .text-gray-600 {
-  color: #5a5a6b;
+  color: var(--text-secondary);
 }
 
 .text-blue-600 {

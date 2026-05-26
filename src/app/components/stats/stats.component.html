@@ -1,10 +1,12 @@
 <div class="stats-grid">
   <div *ngFor="let stat of stats" class="stat-card">
     <div class="stat-icon" [style.background-color]="stat.bgColor">
-      <span class="icon">{{ stat.icon }}</span>
+      <!-- Merged: Added material-icons class for proper icon rendering and color styling -->
+      <span class="material-icons icon" [style.color]="stat.color">{{ stat.icon }}</span>
     </div>
     <div class="stat-content">
-      <div class="stat-number" [style.color]="stat.color">{{ stat.number }}</div>
+      <!-- Merged: Unified property name to 'value' for consistency, fallback to 'number' -->
+      <div class="stat-number" [style.color]="stat.color">{{ stat.value || stat.number }}</div>
       <div class="stat-title">{{ stat.title }}</div>
       <div class="stat-caption">{{ stat.caption }}</div>
     </div>

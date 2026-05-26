@@ -1,42 +1,57 @@
 ```scss
 .topbar {
   height: 74px;
-  background: white;
+  background: var(--surface, white);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 26px;
-  border-bottom: 1px solid #f0f0f8; // Using lighter border color from first version
+  padding: 16px 26px;
+  border-bottom: 1px solid var(--border, #f0f0f8);
 }
 
 .brand {
   .logo {
-    height: 19px;
-    width: auto; // Using auto width for better responsiveness
+    height: 24px; // Using larger height for better visibility
+    width: auto;
   }
 }
 
 .profile-area {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 20px; // Using larger gap for better spacing
 }
 
 .notifications {
-  // Merged both icon selectors - supporting both material-icons and generic icon classes
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: var(--border-light, rgba(240, 240, 248, 0.5));
+  }
+  
+  // Supporting both material-icons and generic icon classes
   .material-icons,
   .icon {
-    color: #0008d5; // Using brand color from first version
-    font-size: 26px; // Using larger size from first version for better visibility
-    cursor: pointer;
+    color: var(--primary-color, #0008d5);
+    font-size: 24px; // Balanced size between versions
   }
 }
 
 .profile {
   display: flex;
   align-items: center;
-  gap: 12px; // Using larger gap from first version for better spacing
+  gap: 12px;
+  padding: 6px 12px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: var(--border-light, rgba(240, 240, 248, 0.5));
+  }
 }
 
 .avatar {
@@ -49,36 +64,42 @@
   justify-content: center;
   color: white;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600; // Using stronger weight for better readability
   
   // Supporting nested initials class for semantic structure
   .initials {
     color: white;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
   }
 }
 
 .profile-info {
   .profile-name {
-    font-size: 15px;
-    color: #202032; // Using darker color from first version for better contrast
-    font-weight: 500;
-    line-height: 1;
-    margin-bottom: 2px; // Adding margin for spacing consistency
+    font-size: 15px; // Using larger size for better readability
+    color: var(--text-primary, #202032);
+    font-weight: 600; // Using stronger weight for hierarchy
+    line-height: 1.2;
+    margin-bottom: 2px;
   }
   
   .profile-role {
-    font-size: 13px;
-    color: #0008d5; // Using brand color from first version
-    line-height: 1;
+    font-size: 13px; // Using larger size for better readability
+    color: var(--text-secondary, #0008d5);
+    line-height: 1.2;
     margin-top: 2px;
   }
 }
 
 .chevron {
-  color: #0008d5; // Using brand color for consistency
-  font-size: 16px; // Using larger size from first version
-  transform: rotate(90deg); // Keeping rotation from second version
+  color: var(--primary-color, #0008d5);
+  font-size: 16px;
+  transform: rotate(90deg);
+}
+
+// Generic material-icons fallback for any icons not specifically styled
+.material-icons {
+  color: var(--text-secondary, #666);
+  font-size: 16px;
 }
 ```

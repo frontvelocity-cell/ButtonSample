@@ -13,7 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StatsCardComponent } from './components/stats-card/stats-card.component';
 import { StatsComponent } from './components/stats/stats.component';
-// Table Components - Merged and deduplicated similar table components
+// Table Components
 import { FlightAssignmentsTableComponent } from './components/flight-assignments-table/flight-assignments-table.component';
 import { EmployeesTableComponent } from './components/employees-table/employees-table.component';
 import { QuickActionsComponent } from './components/quick-actions/quick-actions.component';
@@ -21,23 +21,23 @@ import { QuickActionsComponent } from './components/quick-actions/quick-actions.
 @NgModule({
   declarations: [
     AppComponent,
-    // Layout Components
+    // Layout Components - Merged from both versions
     TopbarComponent,
     SidebarComponent,
-    MainContentComponent,
+    MainContentComponent, // Added from first version
     FooterComponent,
-    // Feature Components
+    // Feature Components - Merged and deduplicated
     DashboardComponent,
-    StatsCardComponent,
-    StatsComponent,
-    // Table Components - Removed duplicates: FlightAssignmentTableComponent and EmployeeTableComponent
+    StatsCardComponent, // Added from first version
+    StatsComponents,
+    // Table Components - Consolidated from both versions
     FlightAssignmentsTableComponent,
     EmployeesTableComponent,
     QuickActionsComponent
   ],
   imports: [
     BrowserModule,
-    // Removed RouterModule.forRoot() - AppRoutingModule handles all routing configuration
+    // Using AppRoutingModule instead of inline RouterModule.forRoot() for better separation of concerns
     AppRoutingModule
   ],
   providers: [],

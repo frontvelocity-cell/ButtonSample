@@ -21,6 +21,7 @@
           <td>{{ assignment.route }}</td>
           <td>{{ assignment.travelDate }}</td>
           <td>
+            <!-- Merged class binding: combined 'status-badge' base class with dynamic status class -->
             <span class="status-badge" [class]="'status-' + assignment.status.toLowerCase()">
               {{ assignment.status }}
             </span>

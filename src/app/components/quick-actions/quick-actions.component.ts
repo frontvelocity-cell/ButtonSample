@@ -1,3 +1,4 @@
+```typescript
 import { Component } from '@angular/core';
 
 interface QuickAction {
@@ -13,37 +14,38 @@ interface QuickAction {
   styleUrls: ['./quick-actions.component.scss']
 })
 export class QuickActionsComponent {
-  // Merged actions array with consistent Material Design icons and proper color theming
+  // Merged actions array with consistent Material Design icons and CSS custom properties for theming
   actions: QuickAction[] = [
     {
-      icon: 'person_add', // Using Material Design icon instead of emoji for consistency
+      icon: 'group_add', // Using more semantic Material Design icon for adding employees
       label: 'Add Employee',
-      color: '#3a8cff', // Using specific hex color instead of generic 'blue'
-      bgColor: 'rgba(58, 140, 255, 0.06)' // Added background color for better UI
+      color: 'var(--secondary-color)', // Using CSS custom properties for consistent theming
+      bgColor: 'rgba(59, 140, 232, 0.1)' // Standardized background opacity for consistency
     },
     {
-      icon: 'work', // Using Material Design icon instead of emoji
+      icon: 'work', // Consistent Material Design icon for work-related actions
       label: 'Add Manager',
-      color: '#0d8c3e', // Using specific hex color instead of generic 'green'
-      bgColor: 'rgba(13, 140, 62, 0.05)' // Added background color for consistency
+      color: 'var(--success-color)', // Using CSS custom properties for success state
+      bgColor: 'rgba(24, 169, 87, 0.1)' // Standardized success color background
     },
     {
-      icon: 'flight_takeoff', // Using Material Design icon instead of emoji
+      icon: 'flight_takeoff', // Material Design icon for flight-related actions
       label: 'Add Flight Assignment',
-      color: '#3a8cff',
-      bgColor: 'rgba(58, 140, 255, 0.1)'
+      color: 'var(--secondary-color)', // Consistent secondary color usage
+      bgColor: 'rgba(59, 140, 232, 0.1)' // Matching secondary color background
     },
     {
-      icon: 'search', // Using Material Design icon instead of emoji
+      icon: 'search', // Material Design search icon
       label: 'Search Records',
-      color: '#0d8c3e',
-      bgColor: 'rgba(13, 140, 62, 0.05)'
+      color: 'var(--success-color)', // Using success color for search actions
+      bgColor: 'rgba(24, 169, 87, 0.1)' // Consistent success background
     },
     {
-      icon: 'assessment', // Using Material Design icon instead of emoji
+      icon: 'assessment', // Material Design icon for reports and analytics
       label: 'Generate Report',
-      color: '#3a8cff',
-      bgColor: 'white' // Maintained white background for visual hierarchy
+      color: 'var(--secondary-color)', // Secondary color for report generation
+      bgColor: 'var(--surface)' // Using CSS custom property for surface color
     }
   ];
 }
+```

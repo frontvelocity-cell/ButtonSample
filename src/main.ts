@@ -9,7 +9,7 @@ if (environment.production) {
   enableProdMode();
 }
 
-// Bootstrap the Angular application
+// Bootstrap the Angular application with error handling
 platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+  .catch(err => console.error('Error starting app:', err));
 ```
