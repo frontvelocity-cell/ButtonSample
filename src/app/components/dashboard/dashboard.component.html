@@ -3,7 +3,7 @@
   <div class="dashboard-header">
     <div class="hero-row">
       <div class="welcome">
-        <h1 class="dashboard-title">Welcome back, {{ user.name || title }}! 👋</h1>
+        <h1 class="dashboard-title">Welcome back, {{ user.name || dashboardTitle || title }}! 👋</h1>
         <p class="subtitle">Here's what's happening in the system today.</p>
       </div>
       <div class="role-card">
@@ -33,6 +33,11 @@
     <div class="content-section">
       <app-flight-assignments-table></app-flight-assignments-table>
       <app-employees-table></app-employees-table>
+    </div>
+    
+    <!-- Dashboard widgets section -->
+    <div class="dashboard-widgets">
+      <!-- Dashboard widgets will be added here -->
     </div>
     
     <!-- Quick actions component -->

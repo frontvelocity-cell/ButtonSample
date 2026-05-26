@@ -20,12 +20,17 @@ describe('DashboardComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have correct title', () => {
-    expect(component.title).toBe('Dashboard');
+  // Merged test cases for title property validation
+  // Combined 'should have correct title' and 'should have dashboard title'
+  // Using the more specific property name 'dashboardTitle' from the second version
+  it('should have dashboard title', () => {
+    expect(component.dashboardTitle).toBe('Dashboard');
   });
 
+  // Enhanced DOM rendering test with proper TypeScript typing
+  // Added optional chaining operator for safer DOM querying
   it('should render dashboard title', () => {
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.dashboard-title').textContent).toContain('Dashboard');
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.dashboard-title')?.textContent).toContain('Dashboard');
   });
 });

@@ -11,9 +11,14 @@ module.exports = function (config) {
     ],
     client: {
       jasmine: {
-        // Merged: Kept random and seed from both versions, added stopSpecOnExpectationFailure from second version
+        // Merged: Kept random and seed from both versions
         random: true,
         seed: '4321',
+        // Added from second version: Enhanced test control options
+        oneFailurePerSpec: true,
+        failFast: true,
+        timeoutInterval: 1000,
+        // Added from first version: Stop on expectation failure
         stopSpecOnExpectationFailure: false
       },
       clearContext: false
@@ -22,8 +27,8 @@ module.exports = function (config) {
       suppressAll: true
     },
     coverageReporter: {
-      // Merged: Updated path to use more generic 'dashboard' instead of 'dashboard-app' for broader compatibility
-      dir: require('path').join(__dirname, './coverage/dashboard'),
+      // Merged: Using more specific path from second version for better project identification
+      dir: require('path').join(__dirname, './coverage/dashboard-app'),
       subdir: '.',
       reporters: [
         { type: 'html' },
