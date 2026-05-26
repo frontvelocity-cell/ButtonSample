@@ -3,13 +3,13 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'] // Updated to .scss for better styling support
+  styleUrls: ['./dashboard.component.scss'] // Using .scss for enhanced styling capabilities
 })
 export class DashboardComponent implements OnInit {
-  // Merged and standardized property naming
-  title = 'Dashboard'; // Consolidated from dashboardTitle and title properties
+  // Consolidated title property from multiple versions
+  title = 'Dashboard';
   
-  // Enhanced user object with role information
+  // Enhanced user object with role information for better user management
   user = {
     name: 'Alex',
     role: 'Administrator'
@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // Added initialization logging for debugging
+    // Added initialization logging for debugging and monitoring
     console.log('Dashboard component initialized');
   }
 }

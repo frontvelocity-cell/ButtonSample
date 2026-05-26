@@ -14,11 +14,11 @@ module.exports = function (config) {
         // Merged: Kept random and seed from both versions
         random: true,
         seed: '4321',
-        // Added from second version: Enhanced test control options
+        // Enhanced test control options for better test management
         oneFailurePerSpec: true,
         failFast: true,
         timeoutInterval: 1000,
-        // Added from first version: Stop on expectation failure
+        // Stop on expectation failure for debugging purposes
         stopSpecOnExpectationFailure: false
       },
       clearContext: false
@@ -27,7 +27,7 @@ module.exports = function (config) {
       suppressAll: true
     },
     coverageReporter: {
-      // Merged: Using more specific path from second version for better project identification
+      // Using specific path for better project identification
       dir: require('path').join(__dirname, './coverage/dashboard-app'),
       subdir: '.',
       reporters: [

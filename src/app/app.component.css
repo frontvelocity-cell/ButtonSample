@@ -2,21 +2,22 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 20px; /* Retained from version 1 for consistent spacing */
 }
 
 .app-header {
-  background-color: #1976d2;
-  color: white;
+  background-color: #1976d2; /* Using Material Design blue from version 1 for better brand consistency */
+  color: white; /* Explicit white text for contrast with dark background */
   padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Added elevation effect from version 1 */
+  border-bottom: 1px solid #dee2e6; /* Fallback border for accessibility */
 }
 
 .app-header h1 {
   margin: 0;
   font-size: 1.5rem;
-  font-weight: 500;
-  color: white;
+  font-weight: 600; /* Using semibold weight from version 2 for better readability */
+  color: white; /* Explicit white color for header text */
 }
 
 .app-main {
@@ -24,8 +25,9 @@
   padding: 2rem;
 }
 
-h1 {
-  color: #050821;
+/* Merged standalone h1 styles into a more specific selector to avoid conflicts */
+h1:not(.app-header h1) {
+  color: #050821; /* Dark blue for content headings */
   margin-bottom: 20px;
   font-size: 24px;
 }

@@ -24,12 +24,12 @@ import { QuickActionsComponent } from './components/quick-actions/quick-actions.
     // Layout Components - Merged from both versions
     TopbarComponent,
     SidebarComponent,
-    MainContentComponent, // Added from first version
+    MainContentComponent,
     FooterComponent,
     // Feature Components - Merged and deduplicated
     DashboardComponent,
-    StatsCardComponent, // Added from first version
-    StatsComponents,
+    StatsCardComponent,
+    StatsComponent, // Fixed typo from StatsComponents to StatsComponent
     // Table Components - Consolidated from both versions
     FlightAssignmentsTableComponent,
     EmployeesTableComponent,
