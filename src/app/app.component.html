@@ -1,8 +1,22 @@
-<div class="dashboard-container">
-  <app-topbar></app-topbar>
-  <div class="dashboard-body">
-    <app-sidebar></app-sidebar>
-    <app-main-content></app-main-content>
-  </div>
+<div class="app-container">
+  <!-- Merged topbar into header for better semantic structure -->
+  <header class="app-header">
+    <app-topbar></app-topbar>
+    <h1>{{title}}</h1>
+  </header>
+  
+  <!-- Combined dashboard-body and app-main concepts -->
+  <main class="app-main">
+    <div class="main-layout">
+      <app-sidebar></app-sidebar>
+      <div class="content-area">
+        <!-- Preserved both main-content component and router-outlet for flexibility -->
+        <app-main-content></app-main-content>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Preserved footer from dashboard layout -->
   <app-footer></app-footer>
 </div>

@@ -11,7 +11,9 @@ module.exports = function (config) {
     ],
     client: {
       jasmine: {
-        random: true
+        // Merged: Added seed property from second version while keeping random from both
+        random: true,
+        seed: '4321'
       },
       clearContext: false
     },
