@@ -2,7 +2,7 @@
   background: white;
   border-radius: 8px;
   padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .panel-title {
@@ -30,7 +30,27 @@
   
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.action-blue {
+  background: rgba(58, 140, 255, 0.06);
+  border: 1px solid rgba(58, 140, 255, 0.1);
+  
+  .action-icon,
+  .action-label {
+    color: #3a8cff;
+  }
+}
+
+.action-green {
+  background: rgba(13, 140, 62, 0.05);
+  border: 1px solid rgba(13, 140, 62, 0.1);
+  
+  .action-icon,
+  .action-label {
+    color: #0d8c3e;
   }
 }
 

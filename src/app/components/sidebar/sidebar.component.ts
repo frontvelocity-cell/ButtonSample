@@ -4,6 +4,7 @@ interface MenuItem {
   icon: string;
   label: string;
   active?: boolean;
+  link?: string;
   children?: MenuItem[];
 }
 
@@ -22,23 +23,27 @@ export class SidebarComponent {
     {
       icon: 'group',
       label: 'Employee Management',
+      active: false,
       children: [
-        { icon: '', label: 'Employees' },
-        { icon: '', label: 'Add Employee' },
-        { icon: '', label: 'Search Employees' }
+        { icon: '', label: 'Employees', link: '/employees' },
+        { icon: '', label: 'Add Employee', link: '/employees/add' },
+        { icon: '', label: 'Search Employees', link: '/employees/search' }
       ]
     },
     {
       icon: 'work',
-      label: 'Manager Management'
+      label: 'Manager Management',
+      active: false
     },
     {
       icon: 'flight',
-      label: 'Flight Management'
+      label: 'Flight Management',
+      active: false
     },
     {
       icon: 'admin_panel_settings',
-      label: 'Administration'
+      label: 'Administration',
+      active: false
     }
   ];
 }

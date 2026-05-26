@@ -1,16 +1,98 @@
+```html
 <div class="actions-panel">
   <h3 class="panel-title">Quick Actions</h3>
   
   <div class="actions-grid">
     <div class="action-card" 
          *ngFor="let action of actions"
+         [class]="'action-' + action.color"
          [style.background-color]="action.bgColor">
-      <span class="material-icons action-icon" [style.color]="action.color">
+      <span class="material-icons action-icon" 
+            [style.color]="action.color">
         {{ action.icon }}
       </span>
-      <span class="action-label" [style.color]="action.color">
+      <span class="action-label" 
+            [style.color]="action.color">
         {{ action.label }}
       </span>
     </div>
   </div>
 </div>
+```
+
+```css
+/* Merged CSS classes for action cards with color variants */
+.action-card {
+  /* Base styles for action cards */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.action-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Color-based action card classes for consistent theming */
+.action-card.action-primary {
+  background-color: var(--primary-bg, #e3f2fd);
+}
+
+.action-card.action-secondary {
+  background-color: var(--secondary-bg, #f3e5f5);
+}
+
+.action-card.action-success {
+  background-color: var(--success-bg, #e8f5e8);
+}
+
+.action-card.action-warning {
+  background-color: var(--warning-bg, #fff3e0);
+}
+
+.action-card.action-danger {
+  background-color: var(--danger-bg, #ffebee);
+}
+
+/* Icon and label styling */
+.action-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.action-label {
+  font-weight: 500;
+  text-align: center;
+}
+```
+
+```typescript
+// Component interface for action items
+export interface ActionItem {
+  icon: string;
+  label: string;
+  color: 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+  bgColor?: string; // Optional for custom background colors
+}
+
+// Component class with merged functionality
+export class ActionsComponent {
+  actions: ActionItem[] = [
+    {
+      icon: 'dashboard',
+      label: 'Dashboard',
+      color: 'primary',
+      bgColor: '#e3f2fd'
+    },
+    {
+      icon: 'settings',
+      label: 'Settings',
+      color: 'secondary',
+      bgColor: '#f3e5f5'
+    }
+  ];
+}
+```

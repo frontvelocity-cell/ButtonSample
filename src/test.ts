@@ -16,7 +16,7 @@ declare const require: {
 // Initialize Angular testing environment
 getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting(),
+  platformBrowserDynamicTesting()
 );
 
 // Automatically discover and load all spec files

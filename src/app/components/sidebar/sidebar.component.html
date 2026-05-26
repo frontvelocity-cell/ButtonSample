@@ -1,26 +1,52 @@
 <aside class="sidebar">
   <nav class="main-nav">
-    <div class="menu-item" *ngFor="let item of menuItems" [class.active]="item.active">
-      <div class="menu-link">
-        <span class="material-icons menu-icon">{{ item.icon }}</span>
-        <span class="menu-label">{{ item.label }}</span>
-        <span class="material-icons chevron" *ngIf="item.children">chevron_right</span>
+    <!-- Merged menu items container with consistent naming -->
+    <div class="menu-items">
+      <div class="menu-item" *ngFor="let item of menuItems" [class.active]="item.active">
+        <div class="menu-link">
+          <!-- Unified icon handling - supports both material icons and unicode -->
+          <span class="material-icons menu-icon" *ngIf="item.iconType === 'material'; else unicodeIcon">{{ item.icon }}</span>
+          <ng-template #unicodeIcon>
+            <span class="icon menu-icon">{{ item.icon }}</span>
+          </ng-template>
+          
+          <!-- Consistent label naming -->
+          <span class="menu-label">{{ item.label }}</span>
+          
+          <!-- Unified chevron with fallback options -->
+          <span class="material-icons chevron" *ngIf="item.children && item.children.length > 0; else unicodeChevron">chevron_right</span>
+          <ng-template #unicodeChevron>
+            <span class="chevron" *ngIf="item.children && item.children.length > 0">▶</span>
+          </ng-template>
+        </div>
+        
+        <!-- Enhanced submenu with proper conditional rendering and link support -->
+        <div class="submenu" *ngIf="item.children && item.children.length > 0 && (item.active || item.expanded)">
+          <div class="submenu-item" *ngFor="let child of item.children">
+            <!-- Support both link and non-link submenu items -->
+            <a *ngIf="child.link; else plainSubmenu" [href]="child.link" class="submenu-link">
+              <span class="submenu-label">{{ child.label }}</span>
+            </a>
+            <ng-template #plainSubmenu>
+              <span class="submenu-label">{{ child.label }}</span>
+            </ng-template>
+          </div>
+        </div>
       </div>
-      
-      <div class="submenu" *ngIf="item.children">
-        <div class="submenu-item" *ngFor="let child of item.children">
-          <span class="submenu-label">{{ child.label }}</span>
+    </div>
+    
+    <!-- Unified lower menu section -->
+    <div class="lower-menu">
+      <div class="menu-item logout">
+        <div class="menu-link">
+          <!-- Flexible logout icon support -->
+          <span class="material-icons menu-icon logout-icon" *ngIf="logoutIconType === 'material'; else unicodeLogout">logout</span>
+          <ng-template #unicodeLogout>
+            <span class="icon menu-icon logout-icon">🚪</span>
+          </ng-template>
+          <span class="menu-label logout-label">Logout Account</span>
         </div>
       </div>
     </div>
   </nav>
-  
-  <div class="lower-menu">
-    <div class="menu-item logout">
-      <div class="menu-link">
-        <span class="material-icons menu-icon logout-icon">logout</span>
-        <span class="menu-label logout-label">Logout Account</span>
-      </div>
-    </div>
-  </div>
 </aside>

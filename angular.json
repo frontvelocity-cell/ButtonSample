@@ -7,7 +7,6 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          // Merged: Using SCSS as it's more feature-rich than CSS
           "style": "scss"
         }
       },
@@ -23,14 +22,12 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            // Merged: Added inlineStyleLanguage to support SCSS
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              // Merged: Using SCSS file extension to match component style preference
               "src/styles.scss"
             ],
             "scripts": []
@@ -80,7 +77,6 @@
           },
           "defaultConfiguration": "development"
         },
-        // Merged: Preserved extract-i18n from first config as it's useful for internationalization
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
@@ -94,14 +90,12 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            // Merged: Added inlineStyleLanguage for consistent SCSS support in tests
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              // Merged: Using SCSS file extension for consistency
               "src/styles.scss"
             ],
             "scripts": []
@@ -110,7 +104,6 @@
       }
     }
   },
-  // Merged: Preserved CLI analytics setting from second config
   "cli": {
     "analytics": false
   }

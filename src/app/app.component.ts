@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'] // Using SCSS for better styling capabilities
 })
 export class AppComponent {
-  title = 'Flight Management Dashboard'; // More descriptive title retained
+  title = 'Flight Management Dashboard'; // More descriptive title retained from first version
 }

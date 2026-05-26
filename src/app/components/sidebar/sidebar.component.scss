@@ -1,6 +1,9 @@
+```css
 .sidebar {
   width: 260px;
   background: white;
+  height: 100vh;
+  border-right: 1px solid #f0f0f0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -8,23 +11,39 @@
   min-height: 885px;
 }
 
-.main-nav {
+/* Merged navigation containers - combining .main-nav and .navigation */
+.navigation {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 10px;
+}
+
+/* Merged menu items container - combining .main-nav and .menu-items */
+.menu-items {
+  flex: 1;
   padding: 0;
+  padding-top: 13px;
 }
 
 .menu-item {
-  margin-bottom: 0;
+  margin-bottom: 8px; /* Using more specific spacing from version 2 */
   
   &.active {
-    background: rgba(197, 213, 249, 0.3);
+    background: rgba(197, 213, 249, 0.3); /* Keeping consistent color from version 1 */
+    border-radius: 4px; /* Adding border-radius from version 2 */
   }
   
   &.logout {
-    .menu-icon {
+    /* Merged icon selectors - .menu-icon and .icon */
+    .menu-icon,
+    .icon {
       color: #d55f5a;
     }
     
-    .menu-label {
+    /* Merged label selectors - .menu-label and .label */
+    .menu-label,
+    .label {
       color: #d55f5a;
     }
   }
@@ -33,60 +52,80 @@
 .menu-link {
   display: flex;
   align-items: center;
-  padding: 12px 20px;
+  padding: 12px 20px; /* Using version 1 padding for consistency */
   text-decoration: none;
-  color: #0008d5;
+  color: #081535; /* Using version 2 color as it's more specific */
   cursor: pointer;
+  transition: all 0.2s; /* Adding transition from version 2 */
   
   &:hover {
-    background: rgba(197, 213, 249, 0.1);
+    background: rgba(197, 213, 249, 0.1); /* Keeping version 1 hover color */
+    border-radius: 4px; /* Adding border-radius from version 2 */
   }
 }
 
-.menu-icon {
-  font-size: 24px;
-  margin-right: 16px;
-  color: #0008d5;
+/* Merged icon classes - .menu-icon and .icon */
+.menu-icon,
+.icon {
+  width: 24px; /* Adding explicit width from version 2 */
+  height: 24px; /* Adding explicit height from version 2 */
+  font-size: 24px; /* Keeping larger font-size from version 1 */
+  margin-right: 16px; /* Using version 1 margin */
+  color: #081535; /* Using version 2 color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.menu-label {
+/* Merged label classes - .menu-label and .label */
+.menu-label,
+.label {
   flex: 1;
-  font-size: 16px;
+  font-size: 16px; /* Using version 1 font-size for better readability */
   font-weight: 500;
-  color: #0008d5;
+  color: #081535; /* Using version 2 color */
 }
 
 .chevron {
-  font-size: 16px;
-  color: #0008d5;
+  font-size: 16px; /* Using version 1 font-size for consistency */
+  color: #081535; /* Using version 2 color */
+  transform: rotate(90deg); /* Adding transform from version 2 */
 }
 
 .submenu {
-  background: rgba(0, 0, 0, 0.02);
-  padding-left: 40px;
+  background: rgba(0, 0, 0, 0.02); /* Keeping background from version 1 */
+  padding-left: 44px; /* Using version 2 padding for better alignment */
+  padding-bottom: 8px; /* Adding bottom padding from version 2 */
 }
 
 .submenu-item {
-  padding: 12px 20px;
+  display: block; /* Adding display from version 2 */
+  padding: 12px 20px; /* Using version 1 padding for consistency */
+  color: #081535; /* Using version 2 color */
+  text-decoration: none;
+  font-size: 14px;
   
   &:hover {
-    background: rgba(197, 213, 249, 0.1);
+    background: rgba(197, 213, 249, 0.1); /* Keeping version 1 hover background */
+    color: #3a8cff; /* Adding color change from version 2 */
   }
 }
 
 .submenu-label {
   font-size: 14px;
-  color: #0008d5;
+  color: #081535; /* Using version 2 color */
   font-weight: 400;
 }
 
 .lower-menu {
   padding: 20px 0;
-  border-top: 1px solid #f0f0f8;
+  border-top: 1px solid #f0f0f0; /* Using version 2 border color */
   margin-top: auto;
 }
 
+/* Legacy selectors for backward compatibility */
 .logout-icon,
 .logout-label {
   color: #d55f5a !important;
 }
+```

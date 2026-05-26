@@ -5,7 +5,8 @@
   flex-direction: column;
 }
 
-.dashboard-body {
+.dashboard-body,
+.main-content {
   display: flex;
   flex: 1;
 }

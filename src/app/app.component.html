@@ -5,18 +5,17 @@
     <h1>{{title}}</h1>
   </header>
   
-  <!-- Combined dashboard-body and app-main concepts -->
+  <!-- Combined dashboard-body and app-main concepts with simplified layout -->
   <main class="app-main">
     <div class="main-layout">
       <app-sidebar></app-sidebar>
       <div class="content-area">
-        <!-- Preserved both main-content component and router-outlet for flexibility -->
-        <app-main-content></app-main-content>
+        <!-- Single router-outlet for content rendering - removed duplicate app-main-content -->
         <router-outlet></router-outlet>
       </div>
     </div>
   </main>
   
-  <!-- Preserved footer from dashboard layout -->
+  <!-- Preserved footer component -->
   <app-footer></app-footer>
 </div>

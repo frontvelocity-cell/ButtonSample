@@ -1,0 +1,46 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-flight-assignments-table',
+  templateUrl: './flight-assignments-table.component.html',
+  styleUrls: ['./flight-assignments-table.component.scss']
+})
+export class FlightAssignmentsTableComponent {
+  assignments = [
+    {
+      flightCode: 'FL1234',
+      employee: 'Sarah Johnson',
+      route: 'DEL → BOM',
+      travelDate: '20 May 2026',
+      status: 'Confirmed'
+    },
+    {
+      flightCode: 'FL5678',
+      employee: 'Michael Chen',
+      route: 'BOM → BLR',
+      travelDate: '21 May 2026',
+      status: 'Confirmed'
+    },
+    {
+      flightCode: 'FL9012',
+      employee: 'Priya Sharma',
+      route: 'DEL → HYD',
+      travelDate: '22 May 2026',
+      status: 'Confirmed'
+    },
+    {
+      flightCode: 'FL3456',
+      employee: 'David Wilson',
+      route: 'BLR → MAA',
+      travelDate: '23 May 2026',
+      status: 'Confirmed'
+    },
+    {
+      flightCode: 'FL7890',
+      employee: 'Emily Davis',
+      route: 'BOM → DEL',
+      travelDate: '24 May 2026',
+      status: 'Scheduled'
+    }
+  ];
+}

@@ -1,0 +1,32 @@
+<div class="panel">
+  <div class="panel-header">
+    <h3 class="panel-title">Recent Flight Assignments</h3>
+    <a href="#" class="view-all-link">View All</a>
+  </div>
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Flight Code</th>
+          <th>Employee</th>
+          <th>Route</th>
+          <th>Travel Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let assignment of assignments">
+          <td>{{ assignment.flightCode }}</td>
+          <td>{{ assignment.employee }}</td>
+          <td>{{ assignment.route }}</td>
+          <td>{{ assignment.travelDate }}</td>
+          <td>
+            <span class="status-badge" [class]="'status-' + assignment.status.toLowerCase()">
+              {{ assignment.status }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

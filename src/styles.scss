@@ -7,31 +7,35 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fbf9ff;
-  color: #1c1c32;
+  background-color: #fbf9ff; /* Merged: kept more specific color value */
+  color: #1c1c32; /* Merged: kept more specific color value */
 }
 
+/* Container and Layout */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 20px; /* Merged: increased from 16px to 20px for better spacing */
 }
 
+/* Card Component */
 .card {
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 24px;
-  margin-bottom: 24px;
+  padding: 24px; /* Merged: kept larger padding value for better spacing */
+  margin-bottom: 24px; /* Added from first version */
 }
 
+/* Button Components */
 .btn {
-  padding: 12px 24px;
+  padding: 12px 24px; /* Merged: kept larger padding for better touch targets */
   border: none;
-  border-radius: 6px;
+  border-radius: 6px; /* Merged: kept larger radius for modern look */
   cursor: pointer;
-  font-weight: 500;
-  transition: all 0.2s ease;
+  font-weight: 500; /* Added explicit font-weight */
+  font-size: 14px; /* Added from second version */
+  transition: all 0.2s ease; /* Merged: added ease timing function */
 }
 
 .btn-primary {
@@ -40,35 +44,37 @@ body {
 }
 
 .btn-primary:hover {
-  background: #2970cc;
+  background: #2970cc; /* Merged: kept first version's hover color */
 }
 
-.btn-success {
+.btn-success, .btn-secondary {
   background: #0d8c3e;
   color: white;
 }
 
-.btn-success:hover {
-  background: #0a6b30;
+.btn-success:hover, .btn-secondary:hover {
+  background: #0a6b30; /* Merged: kept first version's hover color */
 }
 
+/* Status Badges */
 .status-badge {
-  padding: 4px 12px;
-  border-radius: 12px;
+  padding: 4px 12px; /* Merged: kept larger horizontal padding */
+  border-radius: 12px; /* Merged: kept larger radius for pill shape */
   font-size: 12px;
   font-weight: 500;
 }
 
 .status-confirmed {
-  background: #e7f6ec;
+  background: #e7f6ec; /* Merged: kept first version's background */
   color: #15934a;
 }
 
 .status-scheduled {
-  background: #e7f1ff;
-  color: #2477d4;
+  background: #e7f1ff; /* Merged: kept first version's background */
+  color: #2477d4; /* Merged: kept first version's text color */
 }
 
+/* Table Styles */
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -78,27 +84,29 @@ body {
 .table td {
   padding: 12px;
   text-align: left;
-  border-bottom: 1px solid #f0f0f8;
+  border-bottom: 1px solid #f0f0f8; /* Merged: kept more specific border color */
 }
 
 .table th {
-  background: #f7f5fc;
+  background: #f7f5fc; /* Merged: kept consistent background property format */
   color: #4b4b61;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 13px; /* Added from first version */
 }
 
 .table td {
-  color: #29293a;
-  font-size: 13px;
+  color: #29293a; /* Added from first version */
+  font-size: 13px; /* Added from first version */
 }
 
+/* Icon Styles */
 .icon {
   width: 24px;
   height: 24px;
   display: inline-block;
 }
 
+/* Utility Classes - Layout */
 .flex {
   display: flex;
 }
@@ -123,6 +131,7 @@ body {
   gap: 24px;
 }
 
+/* Utility Classes - Typography */
 .text-sm {
   font-size: 13px;
 }
@@ -143,6 +152,7 @@ body {
   font-weight: 600;
 }
 
+/* Utility Classes - Colors */
 .text-gray-500 {
   color: #6c6c7a;
 }
@@ -159,6 +169,7 @@ body {
   background-color: #eef4ff;
 }
 
+/* Utility Classes - Border Radius */
 .rounded {
   border-radius: 6px;
 }
@@ -167,10 +178,12 @@ body {
   border-radius: 8px;
 }
 
+/* Utility Classes - Shadow */
 .shadow {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Utility Classes - Spacing */
 .p-4 {
   padding: 16px;
 }

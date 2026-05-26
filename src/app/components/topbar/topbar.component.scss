@@ -1,3 +1,4 @@
+```scss
 .topbar {
   height: 74px;
   background: white;
@@ -5,13 +6,13 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 26px;
-  border-bottom: 1px solid #f0f0f8;
+  border-bottom: 1px solid #f0f0f8; // Using lighter border color from first version
 }
 
 .brand {
   .logo {
     height: 19px;
-    width: auto;
+    width: auto; // Using auto width for better responsiveness
   }
 }
 
@@ -22,9 +23,11 @@
 }
 
 .notifications {
-  .material-icons {
-    color: #0008d5;
-    font-size: 26px;
+  // Merged both icon selectors - supporting both material-icons and generic icon classes
+  .material-icons,
+  .icon {
+    color: #0008d5; // Using brand color from first version
+    font-size: 26px; // Using larger size from first version for better visibility
     cursor: pointer;
   }
 }
@@ -32,7 +35,7 @@
 .profile {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 12px; // Using larger gap from first version for better spacing
   cursor: pointer;
 }
 
@@ -44,7 +47,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
   
+  // Supporting nested initials class for semantic structure
   .initials {
     color: white;
     font-size: 14px;
@@ -55,18 +62,23 @@
 .profile-info {
   .profile-name {
     font-size: 15px;
-    color: #202032;
+    color: #202032; // Using darker color from first version for better contrast
     font-weight: 500;
-    margin-bottom: 2px;
+    line-height: 1;
+    margin-bottom: 2px; // Adding margin for spacing consistency
   }
   
   .profile-role {
     font-size: 13px;
-    color: #0008d5;
+    color: #0008d5; // Using brand color from first version
+    line-height: 1;
+    margin-top: 2px;
   }
 }
 
 .chevron {
-  color: #0008d5;
-  font-size: 16px;
+  color: #0008d5; // Using brand color for consistency
+  font-size: 16px; // Using larger size from first version
+  transform: rotate(90deg); // Keeping rotation from second version
 }
+```
